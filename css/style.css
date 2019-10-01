@@ -72,6 +72,9 @@ q:before, q:after {
 /* =====================
    3.0 General
    ===================== */
+body {
+  background-color: #000; }
+
 .d-none {
   display: none; }
 
@@ -80,5 +83,8 @@ q:before, q:after {
    ===================== */
 .cover {
   height: 100vh;
+  background: url("../img/background.jpg");
+  background-size: cover;
+  background-position: bottom left;
   background-color: #000;
   color: #FFF; }

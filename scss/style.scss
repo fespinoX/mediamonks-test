@@ -92,6 +92,10 @@ $red: #660000;
    3.0 General
    ===================== */
 
+body {
+	background-color: $black;
+}
+
 .d-none {
 	display: none;
 }
@@ -103,6 +107,9 @@ $red: #660000;
 .cover {
 
 	height: 100vh;
+	background: url('../img/background.jpg');
+	background-size: cover;
+	background-position: bottom left;
 	background-color: $black;
 	color: $white;
 	.statements {
@@ -117,7 +124,7 @@ $red: #660000;
 	}
 
 	.pagination {
-		
+
 	}
 
 }
