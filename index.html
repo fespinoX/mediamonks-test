@@ -2,12 +2,18 @@
 <html>
 
 <head>
-  <title>MediaMonks</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>MediaMonks</title>
+  	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1" />
     
-  <!-- Compiled CSS -->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="fonts/stylesheet.css" type="text/css" charset="utf-8" />
+
+	<!-- Icons -->
+	<link rel="stylesheet" href="icons/css/mmicons.css" type="text/css" charset="utf-8" />
+
+  	<!-- Compiled CSS -->
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
   
 
 </head>
@@ -16,72 +22,176 @@
 	<main>
 		<section class="cover">
 			<h1 class="d-none">MediaMonks</h1>
-			<ul class="statements">
-				<li>We are breaking our vow of silence</li>
-				<li>Talent is given true skill is earned</li>
-				<li>Be flexible to change and sturdy in conviction</li>
-				<li>Use many skills yet work as one</li>
-				<li>To master anything find interest in everything</li>
-				<li>Individuals flourish if culture and wisdom are shared</li>
-				<li>Train for perfection but aim for more</li>
-				<li>Take pride in your work but do not seek praise</li>
-				<li>Temporary sacrifice brings lasting results</li>
-			</ul>
+			<div class="cover-content">
+				<ul class="statements">
+					<li class="jsStatements">
+						<p>
+							<span>We are breaking</span>
+							<br>
+							<span>our vow</span>
+							<br>
+							<span>of silence</span>
+
+							<!-- br use is not ideal (specially if the information would be loaded dynamically), but is the only way to match the design exactly as the css underline doesn't look the same --> 
+						</p>
+					</li>
+					<li class="jsStatements mid-left op-none">
+						<p>
+							<span>Talent is given</span>
+							<br>
+							<span>true skill is</span>
+							<br>
+							<span>earned</span>
+						</p>
+					</li>
+					<li class="jsStatements mid-left op-none">
+						<p>
+							<span>Be flexible to</span>
+							<br>
+							<span>change and</span>
+							<br>
+							<span>sturdy in</span>
+							<br>
+							<span>conviction</span>
+						</p>
+					</li>
+					<li class="jsStatements mid-right op-none">
+						<p>
+							<span>Use many skills</span>
+							<br>
+							<span>yet work as one</span>
+						</p>
+					</li>
+					<li class="jsStatements mid-right op-none">
+						<p>
+							<span>To master</span>
+							<br>
+							<span>anything find</span>
+							<br>
+							<span>interest in</span>
+							<br>
+							<span>everything</span>
+						</p>
+					</li>
+					<li class="jsStatements altop-right op-none">
+						<p>
+							<span>Individuals</span>
+							<br>
+							<span>flourish</span>
+							<br>
+							<span>if culture</span>
+							<br>
+							<span>and wisdom</span>
+							<br>
+							<span>are shared</span>
+					    </p>
+					</li>
+					<li class="jsStatements mid-left op-none">
+						<p>
+							<span>Train for</span>
+							<br>
+							<span>perfection but</span>
+							<br>
+							<span>aim for more</span>
+						</p>
+					</li>
+					<li class="jsStatements mid-left op-none">
+						<p>
+							<span>Take pride in your</span>
+							<br>
+							<span>work but do not</span>
+							<br>
+							<span>seek praise</span>
+						</p>
+					</li>
+					<li class="jsStatements mid-left op-none">
+						<p>
+							<span>Temporary</span>
+							<br>
+							<span>sacrifice brings</span>
+							<br>
+							<span>lasting results</span>
+						</p>
+					</li>
+				</ul>
+				<div class="intro" id="jsIntro">
+					<p>In January 2011, after a decade of digital, we opened the doors to our temple.</p>
+					<p>Follow our noble eightfold path to digital enlightment here.</p>
+				</div>
+			</div>
 			<ul class="arrow-controls">
-				<li>
-					<a href="#" class="arrowLeft">left</a>
+				<li class="arrow-left">
+					<button class="op-none" id="jsArrowLeft">
+							<i class="icon-chev-left"></i>
+					</button>
 				</li>
-				<li>
-					<a href="#" class="arrowRight">right</a>
-				</li>
-			</ul>
-			<ul class="pagination">
-				<li>
-					<span>0</span>
-				</li>
-				<li>
-					<span>1</span>
-				</li>
-				<li>
-					<span>2</span>
-				</li>
-				<li>
-					<span>3</span>
-				</li>
-				<li>
-					<span>4</span>
-				</li>
-				<li>
-					<span>5</span>
-				</li>
-				<li>
-					<span>6</span>
-				</li>
-				<li>
-					<span>7</span>
-				</li>
-				<li>
-					<span>8</span>
-				</li>
-				<li>
-					<span>9</span>
+				<li class="arrow-right">
+					<button id="jsArrowRight">
+							<i class="icon-chev-right"></i>
+					</button>
 				</li>
 			</ul>
-			<div class="join-us">
+			<div class="pagination">
+				<ul class="pagination-list">
+					<li class="jsPages">
+						<span class="transparent white-box">0</span>
+					</li>
+					<li class="jsPages">
+						<span>1</span>
+					</li>
+					<li class="jsPages">
+						<span>2</span>
+					</li>
+					<li class="jsPages">
+						<span>3</span>
+					</li>
+					<li class="jsPages">
+						<span>4</span>
+					</li>
+					<li class="jsPages">
+						<span>5</span>
+					</li>
+					<li class="jsPages">
+						<span>6</span>
+					</li>
+					<li class="jsPages">
+						<span>7</span>
+					</li>
+					<li class="jsPages">
+						<span>8</span>
+					</li>
+					<li class="jsPages">
+						<span class="transparent">9</span>
+					</li>
+				</ul>
+				<div class="enlight op-none">
+					<p>Step <span>1</span> out of 8 on the path to digital enlightment.</p>
+				</div>
+			</div>
+			
+			<div class="join-us op-none">
 				<h2>Become a Monk</h2>
 				<div class="info">
 					<p>Interested in joining our monastery?</p>
 					<p>Checkout our current openings on <a href="http://mediamonks.com/careers/" target="_blank">mediamonks.com/careers</a></p>
 				</div>
 			</div>
-			<div class="logo">
+			<div class="mm-logo">
 				<svg>
-				    <image class="" xlink:href="img/logo.svg" width="96" height="96" src="img/logo.svg" alt="Mediamonk logo" />
+				    <image class="" xlink:href="img/logo.svg" width="80" height="80" src="img/logo.svg" alt="Mediamonk logo" />
 				</svg>
+
+
+
 			</div>
 		</section>
 
 
 	</main>
 </body>
+
+
+<script src="js/script.js"></script>
+
+</html>
 

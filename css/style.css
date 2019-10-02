@@ -39,7 +39,9 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  box-sizing: border-box;
+  opacity: 1; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -72,19 +74,121 @@ q:before, q:after {
 /* =====================
    3.0 General
    ===================== */
+html {
+  font-size: 16px; }
+
 body {
-  background-color: #000; }
+  background-color: #000;
+  font-family: "Klavika Light"; }
 
 .d-none {
-  display: none; }
+  display: none !important; }
+
+.op-none {
+  opacity: 0; }
 
 /* =====================
    3.0 Cover
    ===================== */
 .cover {
   height: 100vh;
+  padding: 25px;
   background: url("../img/background.jpg");
   background-size: cover;
   background-position: bottom left;
   background-color: #000;
   color: #FFF; }
+  .cover .cover-content .statements li {
+    display: inline-block; }
+    .cover .cover-content .statements li p span {
+      display: inline-block;
+      height: calc(4rem + 0.2rem);
+      border-bottom: 1px solid #FFF;
+      font-size: 4rem;
+      text-transform: uppercase;
+      line-height: calc(4rem + 1rem); }
+    .cover .cover-content .statements li[class^='mid-'], .cover .cover-content .statements li[class*=' mid-'] {
+      position: absolute;
+      top: calc(40vh - 10px); }
+    .cover .cover-content .statements li.mid-left {
+      left: 94px; }
+    .cover .cover-content .statements li.mid-right {
+      right: 94px;
+      text-align: right; }
+    .cover .cover-content .statements li.altop-right {
+      position: absolute;
+      top: calc(40vh - 80px);
+      right: 94px;
+      text-align: right; }
+  .cover .cover-content .intro {
+    position: absolute;
+    bottom: 13%; }
+    .cover .cover-content .intro p {
+      font-size: 0.8rem;
+      line-height: 1rem; }
+  .cover .arrow-controls {
+    width: calc(100vw - 50px);
+    height: 50px;
+    position: absolute;
+    top: 40vh;
+    left: 25px; }
+    .cover .arrow-controls li {
+      position: absolute; }
+      .cover .arrow-controls li button {
+        display: inline-block;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer; }
+        .cover .arrow-controls li button i {
+          font-size: 50px;
+          color: #FFF; }
+      .cover .arrow-controls li.arrow-left {
+        left: 0; }
+      .cover .arrow-controls li.arrow-right {
+        right: 0; }
+  .cover .pagination {
+    position: absolute;
+    bottom: 25px;
+    left: 25px; }
+    .cover .pagination .pagination-list {
+      display: inline-block;
+      border: 2.9px solid #FFF;
+      border-image-source: url(../img/border2.png);
+      border-image-slice: 15 15;
+      border-image-repeat: round; }
+      .cover .pagination .pagination-list li {
+        display: inline-block;
+        width: 28px;
+        margin: 0 0 0 -2px;
+        padding: 3px; }
+        .cover .pagination .pagination-list li:not(:last-of-type) {
+          border-right: 2.9px solid #FFF;
+          border-image-source: url(../img/border2.png);
+          border-image-slice: 15 15;
+          border-image-repeat: round; }
+        .cover .pagination .pagination-list li:last-of-type {
+          width: 23px; }
+        .cover .pagination .pagination-list li span {
+          display: block;
+          font-size: 0.8rem;
+          text-align: center; }
+          .cover .pagination .pagination-list li span.white-box {
+            background-color: #FFF; }
+          .cover .pagination .pagination-list li span.transparent {
+            color: transparent; }
+    .cover .pagination .enlight {
+      display: inline-block; }
+      .cover .pagination .enlight p {
+        margin-left: 20px;
+        font-size: 0.8rem; }
+  .cover .mm-logo {
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    right: 25px; }
+    .cover .mm-logo svg {
+      max-width: 80px;
+      max-height: 80px;
+      -webkit-filter: invert(100%);
+      filter: invert(100%); }
