@@ -2,32 +2,40 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 // get statements into an array statements
-const statements = document.getElementsByClassName("jsStatements");
+const STATEMENTS = document.getElementsByClassName("jsStatements");
 
 // get pagination lis into an array pages
-const pages = document.getElementsByClassName("jsPages");
+const PAGES = document.getElementsByClassName("jsPages");
+
+// get enlight text
+const ENLIGHT = document.getElementById("jsEnlight");
+const CENLIGHT = document.getElementById("jsCurrentEnlight");
+const TENLIGHT = document.getElementById("jsTotalEnlight");
 
 // get right arrow
-const arrowRight = document.getElementById("jsArrowRight");
+const ARROWRIGHT = document.getElementById("jsArrowRight");
 
 // get left arrow
-const arrowLeft = document.getElementById("jsArrowLeft");
+const ARROWLEFT = document.getElementById("jsArrowLeft");
 
 // get right arrow
-const intro = document.getElementById("jsIntro");
+const INTRO = document.getElementById("jsIntro");
 
 // counter for page tracking
 let currentPage = 0;
 
+// total pages
+let totalPages = STATEMENTS.length - 1;
+
 
 // button listeners
 
-arrowLeft.addEventListener("click", function(){
+ARROWLEFT.addEventListener("click", function(){
   clickLeft();
 });
 
 
-arrowRight.addEventListener("click", function(){
+ARROWRIGHT.addEventListener("click", function(){
   clickRight();
 });
 
@@ -35,23 +43,27 @@ arrowRight.addEventListener("click", function(){
 var clickRight = () => {
 
 	// hidding/showing statements
-	if (currentPage <= 7) {
+	if (currentPage < totalPages) {
 
 		// we hide previous statement
-		addOpNone(statements[currentPage]);
+		addOpNone(STATEMENTS[currentPage]);
 
 		currentPage++;
 
 		// we show current statement
-		removeOpNone(statements[currentPage]);
+		removeOpNone(STATEMENTS[currentPage]);
 	}
 
 	// hidding/showing arrows
 	checkArrows();
 
-
 	// hidding/showing intro
 	checkIntro();
+
+	// hidding/showing enlight
+	checkEnlight();
+
+
 
 }
 
@@ -60,15 +72,15 @@ var clickRight = () => {
 var clickLeft = () => {
 
 	// hidding/showing statements
-	if (currentPage <= 8 && currentPage > 0) {
+	if (currentPage <= totalPages && currentPage > 0) {
 
 		// we hide previous statement
-		addOpNone(statements[currentPage]);
+		addOpNone(STATEMENTS[currentPage]);
 
 		currentPage--;
 
 		// we show current statement
-		removeOpNone(statements[currentPage]);
+		removeOpNone(STATEMENTS[currentPage]);
 	}
 
 	// hidding/showing arrows
@@ -76,6 +88,9 @@ var clickLeft = () => {
 
 	// hidding/showing intro
 	checkIntro();
+
+	// hidding/showing enlight
+	checkEnlight();
 
 }
 
@@ -87,18 +102,18 @@ var checkArrows = () => {
 	if (currentPage == 0) {
 
 		// we hide the left arrow
-		addOpNone(arrowLeft);
+		addOpNone(ARROWLEFT);
 
-	} else if (currentPage == 8) {
+	} else if (currentPage == totalPages) {
 
 		// we hide the right arrow
-		addOpNone(arrowRight);
+		addOpNone(ARROWRIGHT);
 
 	} else {
 
 		// we show both arrows
-		removeOpNone(arrowRight);
-		removeOpNone(arrowLeft);
+		removeOpNone(ARROWRIGHT);
+		removeOpNone(ARROWLEFT);
 
 	}
 
@@ -110,10 +125,33 @@ var checkArrows = () => {
 var checkIntro = () => {
 
 	if (currentPage == 0) {
-		removeOpNone(intro);
+		removeOpNone(INTRO);
 	} else {
-		addOpNone(intro);
+		addOpNone(INTRO);
 	}
+
+}
+
+// check if enlight text should be shown
+
+var checkEnlight = () => {
+
+	if (currentPage > 0) {
+		removeOpNone(ENLIGHT);
+	} else {
+		addOpNone(ENLIGHT);
+	}
+
+	checkEnlightPage();
+
+}
+
+// show correct enlight numbers
+
+var checkEnlightPage = () => {
+
+	CENLIGHT.innerHTML = currentPage;
+	TENLIGHT.innerHTML = totalPages;
 
 }
 
