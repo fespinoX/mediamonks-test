@@ -313,6 +313,20 @@ body {
 /* 5.2 Tablet
 	------------------------
 	*/
+@media (min-width: 768px) and (max-width: 992px) {
+  .cover .cover-content .statements li p span {
+    font-size: 1.5rem;
+    line-height: 3rem;
+    height: calc(2rem + 0.2rem); }
+  .cover .cover-content .intro {
+    bottom: 20%; }
+  .cover .arrow-controls {
+    width: 100vw;
+    left: 0;
+    top: 50vh; }
+    .cover .arrow-controls li button i {
+      font-size: 30px; } }
+
 /* =====================
    6.0 Loader
    ===================== */
