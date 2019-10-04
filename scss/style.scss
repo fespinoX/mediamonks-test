@@ -118,7 +118,6 @@ body {
 }
 
 .op-none {
-	//transition: opacity 0 2000ms ease-in-out;
 	opacity: 0;
 }
 
@@ -134,7 +133,8 @@ body {
 	padding: 25px;
 	background: url('../img/background.jpg');
 	background-size: cover;
-	background-position: bottom left;
+	background-repeat: no-repeat;
+	background-position: left bottom;
 	background-color: $black;
 	color: $white;
 

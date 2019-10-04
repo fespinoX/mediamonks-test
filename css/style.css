@@ -95,7 +95,8 @@ body {
   padding: 25px;
   background: url("../img/background.jpg");
   background-size: cover;
-  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-position: left bottom;
   background-color: #000;
   color: #FFF; }
   .cover .cover-content .statements li {
