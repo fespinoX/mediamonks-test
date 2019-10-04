@@ -173,7 +173,7 @@ var moveCover = () => {
 	  		coverNewPosition = "-5670px bottom";
 			break;
 		case 6:
-	  		coverNewPosition = "-7000px bottom";
+	  		coverNewPosition = "calc(100% + 1600px) bottom";
 			break;
 		case 7:
 	  		coverNewPosition = "right bottom";
@@ -330,7 +330,7 @@ var checkLastPage = () => {
 ------------------------
 */  
 
-// adds class op-none
+// adds class op-none w/animation
 
 var addOpNone = (elementToHide) => {
 
@@ -354,7 +354,6 @@ var removeOpNone = (elementToShow) => {
     }, 2000);
 		
 }
-
 
 // adds class d-none
 
@@ -395,20 +394,18 @@ var addOpNoneAll = (arrayToHide) => {
 
 var tempDisable = () => {
 
-        ARROWLEFT.disabled = true;
-		ARROWRIGHT.disabled = true;
+    ARROWLEFT.disabled = true;
+	ARROWRIGHT.disabled = true;
 
-		for(let button of PAGES) {
-			setTimeout(function () {
-				button.disabled = true;	
-			}, 1000);
+	for(let button of PAGES) {
+		
+		button.disabled = true;	
 
-			setTimeout(function () {
-				button.disabled = false;	
-			}, 2000);
-
-			
-		}
+		setTimeout(function () {
+			button.disabled = false;	
+		}, 2000);
+		
+	}
 
 }
 
@@ -428,3 +425,46 @@ var tempDisappear = (elementToDisappear) => {
 
 
 })
+
+
+/* Loader
+------------------------
+*/  
+
+
+function showLoader() {
+
+	setTimeout(function () {
+       showPage();
+    }, 3800);
+
+}
+
+const AANLOADER = document.getElementById("jsLoader");
+const ANCONTENT = document.getElementById("jsCover");
+
+function showPage() {
+
+	AANLOADER.classList.add("d-none");
+	ANCONTENT.classList.remove("d-none");
+
+	setTimeout(function () {
+        jsCover.classList.remove("op-none");
+		jsCover.style.opacity = 0;
+		jsCover.style.transition = "opacity 1s";
+		jsCover.style.opacity = 1;
+    }, 500);
+  
+}
+
+const ANTXTFST = document.getElementById("jsAnTxtFst");
+const ANTXTSCN = document.getElementById("jsAnTxtScn");
+
+
+setTimeout(function () {
+	ANTXTFST.innerHTML = "Patience.";
+	ANTXTSCN.classList.remove("d-none");
+
+}, 1000);
+
+

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<title>MediaMonks</title>
   	<meta charset="utf-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Florencia Espino's test for Media Monk">
+	<meta property="og:type" content="website">
+
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+
+  	<meta name="viewport" content="width=device-width, initial-scale=1" />
     
 	<!-- Fonts -->
-	<link rel="stylesheet" href="fonts/stylesheet.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="fonts/stylesheet.css" type="text/css" />
 
 	<!-- Icons -->
-	<link rel="stylesheet" href="icons/css/mmicons.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="icons/css/mmicons.css" type="text/css" />
 
   	<!-- Compiled CSS -->
   	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -18,9 +25,24 @@
 
 </head>
 
-<body>
+<body onload="showLoader()">
 	<main>
-		<section class="cover" id="jsCover">
+
+		<div class="loader flex" id="jsLoader">
+			
+			<div class="animation-elements">
+				<img class="animated-monk" src="img/monk.png" alt="page is loading">
+
+				<span class="animated-text-first" id="jsAnTxtFst">Patience!</span>
+
+				<span class="animated-text-second d-none" id="jsAnTxtScn">young padowan...</span>
+			</div>
+			
+
+		</div>
+
+
+		<section class="cover d-none op-none" id="jsCover">
 			<h1 class="d-none">MediaMonks</h1>
 			<div class="cover-content">
 				<ul class="statements">
@@ -221,7 +243,7 @@
 
 			<div class="mm-logo">
 				<svg>
-				    <image class="" xlink:href="img/logo.svg" width="80" height="80" src="img/logo.svg" alt="Mediamonk logo" />
+				    <image class="" xlink:href="img/logo.svg" width="80" height="80" />
 				</svg>
 
 
@@ -231,10 +253,9 @@
 
 
 	</main>
+
+	<script src="js/script.js"></script>
 </body>
-
-
-<script src="js/script.js"></script>
 
 </html>
 
