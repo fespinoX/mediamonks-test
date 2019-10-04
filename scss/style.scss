@@ -233,18 +233,30 @@ body {
 			  		border-image-slice: 15 15;
 			  		border-image-repeat: round;
 				}
-				&:last-of-type {
-					width: 23px;
+				&:first-of-type {
+					width: 30px;
+    				padding-left: 5px;
 				}
-				span {
-				    display: block;
-					font-size: $small;
-					text-align: center;
-					&.white-box {
-						background-color: $white;
+				&:last-of-type {
+					width: 25px;
+    				padding-left: 1px;
+				}
+				button {
+					display: contents;
+					outline: none;
+					color: $white;
+					span {
+					    display: block;
+						font-size: $small;
+						text-align: center;
+						&.transparent {
+							color: transparent;
+						}
 					}
-					&.transparent {
-						color: transparent;
+					&.white-box {
+						span {
+							background-color: $white;
+						}
 					}
 				}
 			}
@@ -258,7 +270,6 @@ body {
 		}
 	}
 
-
 	.mm-logo {
 		display: block;
 	    position: absolute;
@@ -269,6 +280,44 @@ body {
     		max-height: 80px;
     		-webkit-filter: invert(100%);
 		    filter: invert(100%);
+		}
+	}
+
+	.join-us {
+		position: absolute;
+		top: 25px;
+		right: 25px;
+		h2 {
+			display: inline-block;
+			height: calc(#{$huge} + 0.2rem);
+			border-bottom: 1px solid $white;
+			font-size: $huge;
+			text-transform: uppercase;
+			line-height: calc(#{$huge} + 1rem);
+		}
+		.info {
+			position: absolute;
+			top: 40vh;
+			right: 0;
+			text-align: right;
+			font-size: $small;
+			line-height: calc(#{$small} + 0.2rem);
+			p {
+				a {
+					color: $white;
+				}
+			}
+			ul {
+				margin-top: 25px;
+				li {
+					display: inline-block;
+					a {
+						color: $white;
+						text-decoration: none;
+						cursor: pointer;
+					}
+				}
+			}
 		}
 	}
 

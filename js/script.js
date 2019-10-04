@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
 // counter for page tracking
 let currentPage = 0;
 
-// total pages
-let totalPages = STATEMENTS.length - 1;
-
 // get statements into an array statements
 const STATEMENTS = document.getElementsByClassName("jsStatements");
+
+// total pages
+let totalPages = STATEMENTS.length;
 
 // get cover
 const COVER = document.getElementById("jsCover");
@@ -40,6 +40,9 @@ const TENLIGHT = document.getElementById("jsTotalEnlight");
 // get pagination lis into an array pages
 const PAGES = document.getElementsByClassName("jsPages");
 
+// get join us
+const JOINUS = document.getElementById("jsJoinUs");
+
 
 /* Listeners
 ------------------------
@@ -55,44 +58,55 @@ ARROWRIGHT.addEventListener("click", function(){
   clickRight();
 });
 
+// pagination
+
+for(let button of PAGES) {
+	button.addEventListener("click", function(){
+  		clickPage();
+	});
+}
+
 
 /* Functions
 ------------------------
 */  
 
 // when clicking right arrow
+
 var clickRight = () => {
 
 	currentPage++;
 
-	// disable both arrows for 2 seconds
-	tempDisable();
-
-	// hidding/showing statements
-	checkStatements();
-
-	// move cover according to page
-	moveCover();
-
-	// hidding/showing arrows
-	checkArrows();
-
-	// hidding/showing intro
-	checkIntro();
-
-	// highlights correct page in pagination
-	checkPagination();
-
-	// hidding/showing enlight
-	checkEnlight();
+	callFunctions();
 
 }
 
 
 // when clicking left arrow
+
 var clickLeft = () => {
 
 	currentPage--;
+
+	callFunctions();
+
+}
+
+
+// when clicking any page
+var clickPage = () =>{
+
+
+	let pageNumberClicked = parseInt(window.event.target.innerHTML);
+	currentPage = pageNumberClicked;
+
+	callFunctions();
+
+}
+
+
+// calls all the navigation functions
+var callFunctions = () => {
 
 	// disable both arrows for 2 seconds
 	tempDisable();
@@ -115,20 +129,19 @@ var clickLeft = () => {
 	// hidding/showing enlight
 	checkEnlight();
 
-}
+	// show the last page if this is it
+	checkLastPage();
 
+}
 
 // show correct statement and hide the rest
 
 var checkStatements = () => {
 	// show correct statement
 
-	if (currentPage <= totalPages && currentPage >= 0) {
+	if (currentPage < totalPages && currentPage >= 0) {
 
-		// we hide previous statement
-		for(let statement of STATEMENTS) {
-			addOpNone(statement);
-		}
+		addOpNoneAll(STATEMENTS);
 
 		// we show current statement
 		removeOpNone(STATEMENTS[currentPage]);
@@ -169,7 +182,7 @@ var moveCover = () => {
 	  		coverNewPosition = "right bottom";
 			break;
 		case 9:
-	  		coverNewPosition = "-10060px bottom";
+	  		coverNewPosition = "calc(100% - 1155px) bottom";
 			break;
 	  	
 	  	default:
@@ -246,6 +259,16 @@ var checkIntro = () => {
 var checkPagination = () => {
 
 	// highlight correct pagionation goes here
+	if (currentPage <= totalPages && currentPage >= 0) {
+
+		// we remove the highlight from all pages
+		for(let page of PAGES) {
+			page.classList.remove("white-box");
+		}
+
+		// we highlight the current page
+		PAGES[currentPage].classList.add("white-box");
+	}
 
 }
 
@@ -271,8 +294,34 @@ var checkEnlightPage = () => {
 
 	setTimeout(function () {
 		CENLIGHT.innerHTML = currentPage;
-		TENLIGHT.innerHTML = totalPages;
+		TENLIGHT.innerHTML = totalPages - 1;
 	}, 2000);
+
+}
+
+
+// check if we are at the last page
+
+var checkLastPage = () => {
+	
+	if ( currentPage == totalPages ) {
+
+		// hide all statements
+		addOpNoneAll(STATEMENTS);
+		
+		removeDNone(JOINUS);
+		// show join us
+		removeOpNone(JOINUS);
+		
+
+	} else {
+		
+		addDNone(JOINUS);
+		// hide join us
+		addOpNone(JOINUS);
+
+
+	}
 
 }
 
@@ -281,7 +330,7 @@ var checkEnlightPage = () => {
 ------------------------
 */  
 
-// adds class op-none w/animation
+// adds class op-none
 
 var addOpNone = (elementToHide) => {
 
@@ -307,20 +356,38 @@ var removeOpNone = (elementToShow) => {
 }
 
 
+// adds class d-none
+
+var addDNone = (elementToHide) => elementToHide.classList.add("d-none");
+
+
+// removes class op-none w/animation
+
+var removeDNone = (elementToShow) => elementToShow.classList.remove("d-none");
+
+
 // adds disabled attribute
-var addDisable = (button) => {
-
-	button.disabled = true;
-
-}
+var addDisable = (button) => button.disabled = true;
 
 
-// removes disabled attribute
+// removes disabled attribute w/animation
 var removeDisable = (button) => {
 
 	setTimeout(function () {
 		button.disabled = false;
 	}, 2000);
+
+}
+
+
+// hides all elements inside an array
+
+var addOpNoneAll = (arrayToHide) => {
+
+	for(let position of arrayToHide) {
+		addOpNone(position);
+	}
+
 }
 
 
@@ -330,6 +397,18 @@ var tempDisable = () => {
 
         ARROWLEFT.disabled = true;
 		ARROWRIGHT.disabled = true;
+
+		for(let button of PAGES) {
+			setTimeout(function () {
+				button.disabled = true;	
+			}, 1000);
+
+			setTimeout(function () {
+				button.disabled = false;	
+			}, 2000);
+
+			
+		}
 
 }
 

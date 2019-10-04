@@ -168,16 +168,24 @@ body {
           border-image-source: url(../img/border2.png);
           border-image-slice: 15 15;
           border-image-repeat: round; }
+        .cover .pagination .pagination-list li:first-of-type {
+          width: 30px;
+          padding-left: 5px; }
         .cover .pagination .pagination-list li:last-of-type {
-          width: 23px; }
-        .cover .pagination .pagination-list li span {
-          display: block;
-          font-size: 0.8rem;
-          text-align: center; }
-          .cover .pagination .pagination-list li span.white-box {
+          width: 25px;
+          padding-left: 1px; }
+        .cover .pagination .pagination-list li button {
+          display: contents;
+          outline: none;
+          color: #FFF; }
+          .cover .pagination .pagination-list li button span {
+            display: block;
+            font-size: 0.8rem;
+            text-align: center; }
+            .cover .pagination .pagination-list li button span.transparent {
+              color: transparent; }
+          .cover .pagination .pagination-list li button.white-box span {
             background-color: #FFF; }
-          .cover .pagination .pagination-list li span.transparent {
-            color: transparent; }
     .cover .pagination .enlight {
       display: inline-block; }
       .cover .pagination .enlight p {
@@ -193,3 +201,31 @@ body {
       max-height: 80px;
       -webkit-filter: invert(100%);
       filter: invert(100%); }
+  .cover .join-us {
+    position: absolute;
+    top: 25px;
+    right: 25px; }
+    .cover .join-us h2 {
+      display: inline-block;
+      height: calc(4rem + 0.2rem);
+      border-bottom: 1px solid #FFF;
+      font-size: 4rem;
+      text-transform: uppercase;
+      line-height: calc(4rem + 1rem); }
+    .cover .join-us .info {
+      position: absolute;
+      top: 40vh;
+      right: 0;
+      text-align: right;
+      font-size: 0.8rem;
+      line-height: calc(0.8rem + 0.2rem); }
+      .cover .join-us .info p a {
+        color: #FFF; }
+      .cover .join-us .info ul {
+        margin-top: 25px; }
+        .cover .join-us .info ul li {
+          display: inline-block; }
+          .cover .join-us .info ul li a {
+            color: #FFF;
+            text-decoration: none;
+            cursor: pointer; }
